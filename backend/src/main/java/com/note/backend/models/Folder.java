@@ -18,7 +18,7 @@ import java.time.LocalDateTime;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-@Document(collation = "folders")
+@Document(collection = "folders")
 public class Folder {
 
     @Id

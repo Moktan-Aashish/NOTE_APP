@@ -55,11 +55,13 @@ public class NoteServiceImpl implements NoteService {
         log.info("Moving note to folder with id: {}", folderId);
         Note existing = noteRepository.findById(noteId).orElseThrow(() -> new NoteNotFoundException("Note not found"));
 
-        if (folderId != null) {
+        if (folderId != null && !folderId.isBlank()) {
             folderRepository.findById(folderId).orElseThrow(() -> new FolderNotFoundException("Folder not found"));
+            existing.setFolderId(folderId);
+        } else {
+            existing.setFolderId(null);
         }
 
-        existing.setFolderId(folderId);
         Note updatedNote = noteRepository.save(existing);
 
         log.info("Note moved to folder with id: {}", updatedNote.getFolderId());
