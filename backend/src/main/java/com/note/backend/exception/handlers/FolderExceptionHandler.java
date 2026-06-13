@@ -1,9 +1,9 @@
 package com.note.backend.exception.handlers;
 
-import com.mongodb.DuplicateKeyException;
 import com.note.backend.dtos.response.ApiResponse;
 import com.note.backend.exception.customs.FolderNotFoundException;
 import jakarta.servlet.http.HttpServletRequest;
+import org.springframework.dao.DuplicateKeyException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ExceptionHandler;
